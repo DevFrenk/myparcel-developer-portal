@@ -61,6 +61,7 @@ const config: ZudokuConfig = {
     title: "MyParcel Developer Portal",
     description:
       "API documentation for MyParcel shipping, order, and identity services",
+    favicon: "/favicon.ico",
   },
   topNavigation: [
     { id: "docs", label: "Guides" },
