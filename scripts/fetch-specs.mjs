@@ -17,6 +17,26 @@ const specs = [
     output: "openapi/iam-api.json",
     bundle: false,
   },
+  {
+    url: "https://rule.api.myparcel.nl/openapi.json",
+    output: "openapi/rule-api.json",
+    bundle: false,
+  },
+  {
+    url: "https://address.api.myparcel.nl/openapi.json",
+    output: "openapi/address-api.json",
+    bundle: false,
+  },
+  {
+    url: "https://printing.api.myparcel.nl/openapi.json",
+    output: "openapi/printing-api.json",
+    bundle: false,
+  },
+  {
+    url: "https://product.api.myparcel.nl/openapi.json",
+    output: "openapi/product-api.json",
+    bundle: false,
+  },
 ];
 
 async function fetchSpecs() {

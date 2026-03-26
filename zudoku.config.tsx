@@ -7,6 +7,55 @@ const config: ZudokuConfig = {
       alt: "MyParcel",
       width: "180px",
     },
+    footer: {
+      columns: [
+        {
+          title: "Documentatie",
+          links: [
+            { label: "Aan de slag", href: "/getting-started" },
+            { label: "WooCommerce", href: "https://developer.myparcel.nl/nl/documentatie/10.woocommerce.html" },
+            { label: "Prestashop", href: "https://developer.myparcel.nl/nl/documentatie/11.prestashop.html" },
+            { label: "Magento 2", href: "https://developer.myparcel.nl/nl/documentatie/13.magento2.html" },
+            { label: "Shopify", href: "https://developer.myparcel.nl/nl/documentatie/14.shopify.html" },
+            { label: "Shopware", href: "https://developer.myparcel.nl/nl/documentatie/15.shopware.html" },
+            { label: "PHP SDK", href: "https://developer.myparcel.nl/documentation/50.php-sdk.html" },
+            { label: "JS SDK", href: "https://developer.myparcel.nl/documentation/51.javascript-sdk.html" },
+            { label: "Delivery Options", href: "https://developer.myparcel.nl/documentation/60.delivery-options.html" },
+          ],
+        },
+        {
+          title: "Contact",
+          links: [
+            { label: "Neem contact op", href: "https://developer.myparcel.nl/contact.html" },
+            { label: "Chat op Slack", href: "https://join.slack.com/t/myparcel-dev/shared_invite/zt-2zvk9gfs1-h6koDUduK6ZM_kZcc247AQ" },
+            { label: "Word partner", href: "https://www.myparcel.nl/partner-worden/" },
+          ],
+        },
+        {
+          title: "Links",
+          links: [
+            { label: "Status", href: "https://status.myparcel.nl/" },
+            { label: "Over ons", href: "https://developer.myparcel.nl/about.html" },
+            { label: "Vacatures", href: "https://www.myparcel.nl/vacature/development/" },
+            { label: "GitHub", href: "https://github.com/myparcelnl/" },
+            { label: "MyParcel", href: "https://www.myparcel.nl/" },
+            { label: "SendMyParcel", href: "https://www.sendmyparcel.be/" },
+          ],
+        },
+        {
+          title: "Juridisch",
+          position: "end",
+          links: [
+            { label: "Voorwaarden & beleid", href: "https://backoffice.myparcel.nl/static/myparcel-nederland/documentatie/voorwaarden/myparcel-algemene-voorwaarden.pdf" },
+            { label: "Cookiestatement", href: "https://backoffice.myparcel.nl/static/myparcel-nederland/documentatie/voorwaarden/myparcel-cookie-statement.pdf" },
+            { label: "Privacyverklaring", href: "https://backoffice.myparcel.nl/static/myparcel-nederland/documentatie/voorwaarden/myparcel-privacy-statement.pdf" },
+          ],
+        },
+      ],
+      social: [
+        { icon: "github", href: "https://github.com/myparcelnl/" },
+      ],
+    },
   },
   metadata: {
     title: "MyParcel Developer Portal",
@@ -18,6 +67,10 @@ const config: ZudokuConfig = {
     { id: "shipping-api", label: "Shipping API" },
     { id: "order-api", label: "Order API" },
     { id: "iam-api", label: "IAM API" },
+    { id: "rule-api", label: "Rule API" },
+    { id: "address-api", label: "Address API" },
+    { id: "printing-api", label: "Printing API" },
+    { id: "product-api", label: "Product API" },
   ],
   sidebar: {
     docs: [
@@ -35,28 +88,25 @@ const config: ZudokuConfig = {
       },
     ],
     "shipping-api": [
-      {
-        type: "link",
-        label: "Shipping API Reference",
-        to: "/api/shipping",
-        icon: "package",
-      },
+      { type: "link", label: "Shipping API Reference", to: "/api/shipping", icon: "package" },
     ],
     "order-api": [
-      {
-        type: "link",
-        label: "Order API Reference",
-        to: "/api/orders",
-        icon: "shopping-cart",
-      },
+      { type: "link", label: "Order API Reference", to: "/api/orders", icon: "shopping-cart" },
     ],
     "iam-api": [
-      {
-        type: "link",
-        label: "IAM API Reference",
-        to: "/api/iam",
-        icon: "shield",
-      },
+      { type: "link", label: "IAM API Reference", to: "/api/iam", icon: "shield" },
+    ],
+    "rule-api": [
+      { type: "link", label: "Rule API Reference", to: "/api/rules", icon: "settings" },
+    ],
+    "address-api": [
+      { type: "link", label: "Address API Reference", to: "/api/address", icon: "map-pin" },
+    ],
+    "printing-api": [
+      { type: "link", label: "Printing API Reference", to: "/api/printing", icon: "printer" },
+    ],
+    "product-api": [
+      { type: "link", label: "Product API Reference", to: "/api/products", icon: "box" },
     ],
   },
   redirects: [{ from: "/", to: "/introduction" }],
@@ -78,6 +128,30 @@ const config: ZudokuConfig = {
       input: "./openapi/iam-api.json",
       path: "/api/iam",
       navigationId: "iam-api",
+    },
+    {
+      type: "file",
+      input: "./openapi/rule-api.json",
+      path: "/api/rules",
+      navigationId: "rule-api",
+    },
+    {
+      type: "file",
+      input: "./openapi/address-api.json",
+      path: "/api/address",
+      navigationId: "address-api",
+    },
+    {
+      type: "file",
+      input: "./openapi/printing-api.json",
+      path: "/api/printing",
+      navigationId: "printing-api",
+    },
+    {
+      type: "file",
+      input: "./openapi/product-api.json",
+      path: "/api/products",
+      navigationId: "product-api",
     },
   ],
   theme: {
@@ -111,55 +185,6 @@ const config: ZudokuConfig = {
       card: "0 0% 10%",
       cardForeground: "0 0% 92%",
     },
-  },
-  footer: {
-    columns: [
-      {
-        title: "Documentatie",
-        links: [
-          { label: "Aan de slag", href: "/getting-started" },
-          { label: "WooCommerce", href: "https://developer.myparcel.nl/nl/documentatie/10.woocommerce.html" },
-          { label: "Prestashop", href: "https://developer.myparcel.nl/nl/documentatie/11.prestashop.html" },
-          { label: "Magento 2", href: "https://developer.myparcel.nl/nl/documentatie/13.magento2.html" },
-          { label: "Shopify", href: "https://developer.myparcel.nl/nl/documentatie/14.shopify.html" },
-          { label: "Shopware", href: "https://developer.myparcel.nl/nl/documentatie/15.shopware.html" },
-          { label: "PHP SDK", href: "https://developer.myparcel.nl/documentation/50.php-sdk.html" },
-          { label: "JS SDK", href: "https://developer.myparcel.nl/documentation/51.javascript-sdk.html" },
-          { label: "Delivery Options", href: "https://developer.myparcel.nl/documentation/60.delivery-options.html" },
-        ],
-      },
-      {
-        title: "Contact",
-        links: [
-          { label: "Neem contact op", href: "https://developer.myparcel.nl/contact.html" },
-          { label: "Chat op Slack", href: "https://join.slack.com/t/myparcel-dev/shared_invite/zt-2zvk9gfs1-h6koDUduK6ZM_kZcc247AQ" },
-          { label: "Word partner", href: "https://www.myparcel.nl/partner-worden/" },
-        ],
-      },
-      {
-        title: "Links",
-        links: [
-          { label: "Status", href: "https://status.myparcel.nl/" },
-          { label: "Over ons", href: "https://developer.myparcel.nl/about.html" },
-          { label: "Vacatures", href: "https://www.myparcel.nl/vacature/development/" },
-          { label: "GitHub", href: "https://github.com/myparcelnl/" },
-          { label: "MyParcel", href: "https://www.myparcel.nl/" },
-          { label: "SendMyParcel", href: "https://www.sendmyparcel.be/" },
-        ],
-      },
-      {
-        title: "Juridisch",
-        position: "end",
-        links: [
-          { label: "Voorwaarden & beleid", href: "https://backoffice.myparcel.nl/static/myparcel-nederland/documentatie/voorwaarden/myparcel-algemene-voorwaarden.pdf" },
-          { label: "Cookiestatement", href: "https://backoffice.myparcel.nl/static/myparcel-nederland/documentatie/voorwaarden/myparcel-cookie-statement.pdf" },
-          { label: "Privacyverklaring", href: "https://backoffice.myparcel.nl/static/myparcel-nederland/documentatie/voorwaarden/myparcel-privacy-statement.pdf" },
-        ],
-      },
-    ],
-    social: [
-      { icon: "github", href: "https://github.com/myparcelnl/" },
-    ],
   },
   customCss: `
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
