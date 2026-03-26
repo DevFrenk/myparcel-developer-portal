@@ -68,6 +68,7 @@ const config: ZudokuConfig = {
   },
   header: {
     navigation: [
+      { label: "Sign up for free", to: "https://www.myparcel.nl/aanmelden/", icon: "user-plus" },
       { label: "GitHub", to: "https://github.com/myparcelnl/", icon: "github" },
     ],
   },
@@ -75,6 +76,7 @@ const config: ZudokuConfig = {
     {
       type: "category",
       label: "Documentation",
+      icon: "book-open",
       items: [
         {
           type: "category",
@@ -90,7 +92,7 @@ const config: ZudokuConfig = {
         {
           type: "category",
           label: "Integrations",
-          icon: "book-open",
+          icon: "puzzle",
           collapsed: true,
           items: [
             { type: "link", label: "WooCommerce", to: "https://developer.myparcel.nl/nl/documentatie/10.woocommerce.html" },
@@ -119,6 +121,7 @@ const config: ZudokuConfig = {
     {
       type: "category",
       label: "API Reference",
+      icon: "code",
       items: [
         "/api-overview",
         { type: "link", label: "Shipment API", to: "/api/shipping", icon: "package" },
@@ -211,6 +214,7 @@ const config: ZudokuConfig = {
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
+
   `,
 };
 
