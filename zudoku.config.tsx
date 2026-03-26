@@ -5,7 +5,7 @@ const config: ZudokuConfig = {
     logo: {
       src: { light: "/logo-light.svg", dark: "/logo-dark.svg" },
       alt: "MyParcel",
-      width: "140px",
+      width: "180px",
     },
   },
   metadata: {
@@ -111,6 +111,55 @@ const config: ZudokuConfig = {
       card: "0 0% 10%",
       cardForeground: "0 0% 92%",
     },
+  },
+  footer: {
+    columns: [
+      {
+        title: "Documentatie",
+        links: [
+          { label: "Aan de slag", href: "/getting-started" },
+          { label: "WooCommerce", href: "https://developer.myparcel.nl/nl/documentatie/10.woocommerce.html" },
+          { label: "Prestashop", href: "https://developer.myparcel.nl/nl/documentatie/11.prestashop.html" },
+          { label: "Magento 2", href: "https://developer.myparcel.nl/nl/documentatie/13.magento2.html" },
+          { label: "Shopify", href: "https://developer.myparcel.nl/nl/documentatie/14.shopify.html" },
+          { label: "Shopware", href: "https://developer.myparcel.nl/nl/documentatie/15.shopware.html" },
+          { label: "PHP SDK", href: "https://developer.myparcel.nl/documentation/50.php-sdk.html" },
+          { label: "JS SDK", href: "https://developer.myparcel.nl/documentation/51.javascript-sdk.html" },
+          { label: "Delivery Options", href: "https://developer.myparcel.nl/documentation/60.delivery-options.html" },
+        ],
+      },
+      {
+        title: "Contact",
+        links: [
+          { label: "Neem contact op", href: "https://developer.myparcel.nl/contact.html" },
+          { label: "Chat op Slack", href: "https://join.slack.com/t/myparcel-dev/shared_invite/zt-2zvk9gfs1-h6koDUduK6ZM_kZcc247AQ" },
+          { label: "Word partner", href: "https://www.myparcel.nl/partner-worden/" },
+        ],
+      },
+      {
+        title: "Links",
+        links: [
+          { label: "Status", href: "https://status.myparcel.nl/" },
+          { label: "Over ons", href: "https://developer.myparcel.nl/about.html" },
+          { label: "Vacatures", href: "https://www.myparcel.nl/vacature/development/" },
+          { label: "GitHub", href: "https://github.com/myparcelnl/" },
+          { label: "MyParcel", href: "https://www.myparcel.nl/" },
+          { label: "SendMyParcel", href: "https://www.sendmyparcel.be/" },
+        ],
+      },
+      {
+        title: "Juridisch",
+        position: "end",
+        links: [
+          { label: "Voorwaarden & beleid", href: "https://backoffice.myparcel.nl/static/myparcel-nederland/documentatie/voorwaarden/myparcel-algemene-voorwaarden.pdf" },
+          { label: "Cookiestatement", href: "https://backoffice.myparcel.nl/static/myparcel-nederland/documentatie/voorwaarden/myparcel-cookie-statement.pdf" },
+          { label: "Privacyverklaring", href: "https://backoffice.myparcel.nl/static/myparcel-nederland/documentatie/voorwaarden/myparcel-privacy-statement.pdf" },
+        ],
+      },
+    ],
+    social: [
+      { icon: "github", href: "https://github.com/myparcelnl/" },
+    ],
   },
   customCss: `
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
