@@ -26,7 +26,7 @@ const config: ZudokuConfig = {
         {
           title: "Contact",
           links: [
-            { label: "Neem contact op", href: "https://developer.myparcel.nl/contact.html" },
+            { label: "Neem contact op", href: "/contact" },
             { label: "Chat op Slack", href: "https://join.slack.com/t/myparcel-dev/shared_invite/zt-2zvk9gfs1-h6koDUduK6ZM_kZcc247AQ" },
             { label: "Word partner", href: "https://www.myparcel.nl/partner-worden/" },
           ],
@@ -35,7 +35,7 @@ const config: ZudokuConfig = {
           title: "Links",
           links: [
             { label: "Status", href: "https://status.myparcel.nl/" },
-            { label: "Over ons", href: "https://developer.myparcel.nl/about.html" },
+            { label: "Over ons", href: "/about" },
             { label: "Vacatures", href: "https://www.myparcel.nl/vacature/development/" },
             { label: "GitHub", href: "https://github.com/myparcelnl/" },
             { label: "MyParcel", href: "https://www.myparcel.nl/" },
@@ -60,99 +60,112 @@ const config: ZudokuConfig = {
   metadata: {
     title: "MyParcel Developer Portal",
     description:
-      "API documentation for MyParcel shipping, order, and identity services",
+      "API documentatie voor MyParcel shipping, order en identity services",
     favicon: "/favicon.ico",
   },
-  topNavigation: [
-    { id: "docs", label: "Guides" },
-    { id: "shipping-api", label: "Shipping API" },
-    { id: "order-api", label: "Order API" },
-    { id: "iam-api", label: "IAM API" },
-    { id: "rule-api", label: "Rule API" },
-    { id: "address-api", label: "Address API" },
-    { id: "printing-api", label: "Printing API" },
-    { id: "product-api", label: "Product API" },
-  ],
-  sidebar: {
-    docs: [
-      {
-        type: "category",
-        label: "Getting Started",
-        icon: "sparkles",
-        items: ["/introduction", "/getting-started", "/authentication"],
-      },
-      {
-        type: "category",
-        label: "Reference",
-        icon: "book",
-        items: ["/errors"],
-      },
-    ],
-    "shipping-api": [
-      { type: "link", label: "Shipping API Reference", to: "/api/shipping", icon: "package" },
-    ],
-    "order-api": [
-      { type: "link", label: "Order API Reference", to: "/api/orders", icon: "shopping-cart" },
-    ],
-    "iam-api": [
-      { type: "link", label: "IAM API Reference", to: "/api/iam", icon: "shield" },
-    ],
-    "rule-api": [
-      { type: "link", label: "Rule API Reference", to: "/api/rules", icon: "settings" },
-    ],
-    "address-api": [
-      { type: "link", label: "Address API Reference", to: "/api/address", icon: "map-pin" },
-    ],
-    "printing-api": [
-      { type: "link", label: "Printing API Reference", to: "/api/printing", icon: "printer" },
-    ],
-    "product-api": [
-      { type: "link", label: "Product API Reference", to: "/api/products", icon: "box" },
+  search: {
+    type: "pagefind",
+  },
+  header: {
+    navigation: [
+      { label: "GitHub", to: "https://github.com/myparcelnl/", icon: "github" },
     ],
   },
+  navigation: [
+    {
+      type: "category",
+      label: "Documentation",
+      items: [
+        {
+          type: "category",
+          label: "Aan de slag",
+          icon: "rocket",
+          items: [
+            "/introduction",
+            "/getting-started",
+            "/authentication",
+            "/errors",
+          ],
+        },
+        {
+          type: "category",
+          label: "Documentatie",
+          icon: "book-open",
+          collapsed: true,
+          items: [
+            { type: "link", label: "WooCommerce", to: "https://developer.myparcel.nl/nl/documentatie/10.woocommerce.html" },
+            { type: "link", label: "Prestashop", to: "https://developer.myparcel.nl/nl/documentatie/11.prestashop.html" },
+            { type: "link", label: "Magento 2", to: "https://developer.myparcel.nl/nl/documentatie/13.magento2.html" },
+            { type: "link", label: "Shopify", to: "https://developer.myparcel.nl/nl/documentatie/14.shopify.html" },
+            { type: "link", label: "Shopware", to: "https://developer.myparcel.nl/nl/documentatie/15.shopware.html" },
+            { type: "link", label: "PHP SDK", to: "https://developer.myparcel.nl/documentation/50.php-sdk.html" },
+            { type: "link", label: "JS SDK", to: "https://developer.myparcel.nl/documentation/51.javascript-sdk.html" },
+            { type: "link", label: "Delivery Options", to: "https://developer.myparcel.nl/documentation/60.delivery-options.html" },
+          ],
+        },
+        {
+          type: "category",
+          label: "Informatie",
+          icon: "info",
+          collapsed: true,
+          items: [
+            "/about",
+            "/contact",
+            { type: "link", label: "Status", to: "https://status.myparcel.nl/", icon: "activity" },
+          ],
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "API Reference",
+      items: [
+        { type: "link", label: "Shipping API", to: "/api/shipping", icon: "package" },
+        { type: "link", label: "Order API", to: "/api/orders", icon: "shopping-cart" },
+        { type: "link", label: "IAM API", to: "/api/iam", icon: "shield" },
+        { type: "link", label: "Rule API", to: "/api/rules", icon: "settings" },
+        { type: "link", label: "Address API", to: "/api/address", icon: "map-pin" },
+        { type: "link", label: "Printing API", to: "/api/printing", icon: "printer" },
+        { type: "link", label: "Product API", to: "/api/products", icon: "box" },
+      ],
+    },
+  ],
   redirects: [{ from: "/", to: "/introduction" }],
   apis: [
     {
       type: "file",
       input: "./openapi/shipping-api.json",
       path: "/api/shipping",
-      navigationId: "shipping-api",
     },
     {
       type: "file",
       input: "./openapi/order-api.json",
       path: "/api/orders",
-      navigationId: "order-api",
     },
     {
       type: "file",
       input: "./openapi/iam-api.json",
       path: "/api/iam",
-      navigationId: "iam-api",
     },
     {
       type: "file",
       input: "./openapi/rule-api.json",
       path: "/api/rules",
-      navigationId: "rule-api",
     },
     {
       type: "file",
       input: "./openapi/address-api.json",
       path: "/api/address",
-      navigationId: "address-api",
     },
     {
       type: "file",
       input: "./openapi/printing-api.json",
       path: "/api/printing",
-      navigationId: "printing-api",
     },
     {
       type: "file",
       input: "./openapi/product-api.json",
       path: "/api/products",
-      navigationId: "product-api",
     },
   ],
   theme: {
