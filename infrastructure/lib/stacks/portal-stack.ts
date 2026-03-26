@@ -31,6 +31,30 @@ export class PortalStack extends cdk.Stack {
 
     const certificate = props.certificate;
 
+    // CloudFront Function to append .html extension for clean URLs
+    const urlRewriteFunction = new cloudfront.Function(
+      this,
+      "UrlRewriteFunction",
+      {
+        code: cloudfront.FunctionCode.fromInline(`
+function handler(event) {
+  var request = event.request;
+  var uri = request.uri;
+
+  // If URI has an extension or ends with /, leave it alone
+  if (uri.includes('.') || uri.endsWith('/')) {
+    return request;
+  }
+
+  // Append .html for clean URLs
+  request.uri = uri + '.html';
+  return request;
+}
+`),
+        runtime: cloudfront.FunctionRuntime.JS_2_0,
+      },
+    );
+
     // CloudFront distribution
     const distribution = new cloudfront.Distribution(this, "Distribution", {
       defaultBehavior: {
@@ -38,6 +62,12 @@ export class PortalStack extends cdk.Stack {
         viewerProtocolPolicy:
           cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
         cachePolicy: cloudfront.CachePolicy.CACHING_OPTIMIZED,
+        functionAssociations: [
+          {
+            function: urlRewriteFunction,
+            eventType: cloudfront.FunctionEventType.VIEWER_REQUEST,
+          },
+        ],
       },
       domainNames: [props.domainName],
       certificate,
