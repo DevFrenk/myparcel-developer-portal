@@ -10,9 +10,9 @@ const config: ZudokuConfig = {
     footer: {
       columns: [
         {
-          title: "Documentatie",
+          title: "Documentation",
           links: [
-            { label: "Aan de slag", href: "/getting-started" },
+            { label: "Getting Started", href: "/getting-started" },
             { label: "WooCommerce", href: "https://developer.myparcel.nl/nl/documentatie/10.woocommerce.html" },
             { label: "Prestashop", href: "https://developer.myparcel.nl/nl/documentatie/11.prestashop.html" },
             { label: "Magento 2", href: "https://developer.myparcel.nl/nl/documentatie/13.magento2.html" },
@@ -26,29 +26,29 @@ const config: ZudokuConfig = {
         {
           title: "Contact",
           links: [
-            { label: "Neem contact op", href: "/contact" },
-            { label: "Chat op Slack", href: "https://join.slack.com/t/myparcel-dev/shared_invite/zt-2zvk9gfs1-h6koDUduK6ZM_kZcc247AQ" },
-            { label: "Word partner", href: "https://www.myparcel.nl/partner-worden/" },
+            { label: "Get in touch", href: "/contact" },
+            { label: "Chat on Slack", href: "https://join.slack.com/t/myparcel-dev/shared_invite/zt-2zvk9gfs1-h6koDUduK6ZM_kZcc247AQ" },
+            { label: "Become a partner", href: "https://www.myparcel.nl/partner-worden/" },
           ],
         },
         {
           title: "Links",
           links: [
             { label: "Status", href: "https://status.myparcel.nl/" },
-            { label: "Over ons", href: "/about" },
-            { label: "Vacatures", href: "https://www.myparcel.nl/vacature/development/" },
+            { label: "About us", href: "/about" },
+            { label: "Careers", href: "https://www.myparcel.nl/vacature/development/" },
             { label: "GitHub", href: "https://github.com/myparcelnl/" },
             { label: "MyParcel", href: "https://www.myparcel.nl/" },
             { label: "SendMyParcel", href: "https://www.sendmyparcel.be/" },
           ],
         },
         {
-          title: "Juridisch",
+          title: "Legal",
           position: "end",
           links: [
-            { label: "Voorwaarden & beleid", href: "https://backoffice.myparcel.nl/static/myparcel-nederland/documentatie/voorwaarden/myparcel-algemene-voorwaarden.pdf" },
-            { label: "Cookiestatement", href: "https://backoffice.myparcel.nl/static/myparcel-nederland/documentatie/voorwaarden/myparcel-cookie-statement.pdf" },
-            { label: "Privacyverklaring", href: "https://backoffice.myparcel.nl/static/myparcel-nederland/documentatie/voorwaarden/myparcel-privacy-statement.pdf" },
+            { label: "Terms & Conditions", href: "https://backoffice.myparcel.nl/static/myparcel-nederland/documentatie/voorwaarden/myparcel-algemene-voorwaarden.pdf" },
+            { label: "Cookie Statement", href: "https://backoffice.myparcel.nl/static/myparcel-nederland/documentatie/voorwaarden/myparcel-cookie-statement.pdf" },
+            { label: "Privacy Policy", href: "https://backoffice.myparcel.nl/static/myparcel-nederland/documentatie/voorwaarden/myparcel-privacy-statement.pdf" },
           ],
         },
       ],
@@ -60,7 +60,7 @@ const config: ZudokuConfig = {
   metadata: {
     title: "MyParcel Developer Portal",
     description:
-      "API documentatie voor MyParcel shipping, order en identity services",
+      "API documentation for MyParcel shipping, order, and identity services",
     favicon: "/favicon.ico",
   },
   search: {
@@ -78,7 +78,7 @@ const config: ZudokuConfig = {
       items: [
         {
           type: "category",
-          label: "Aan de slag",
+          label: "Getting Started",
           icon: "rocket",
           items: [
             "/introduction",
@@ -89,7 +89,7 @@ const config: ZudokuConfig = {
         },
         {
           type: "category",
-          label: "Documentatie",
+          label: "Integrations",
           icon: "book-open",
           collapsed: true,
           items: [
@@ -105,7 +105,7 @@ const config: ZudokuConfig = {
         },
         {
           type: "category",
-          label: "Informatie",
+          label: "Information",
           icon: "info",
           collapsed: true,
           items: [
@@ -120,7 +120,8 @@ const config: ZudokuConfig = {
       type: "category",
       label: "API Reference",
       items: [
-        { type: "link", label: "Shipping API", to: "/api/shipping", icon: "package" },
+        "/api-overview",
+        { type: "link", label: "Shipment API", to: "/api/shipping", icon: "package" },
         { type: "link", label: "Order API", to: "/api/orders", icon: "shopping-cart" },
         { type: "link", label: "IAM API", to: "/api/iam", icon: "shield" },
         { type: "link", label: "Rule API", to: "/api/rules", icon: "settings" },
