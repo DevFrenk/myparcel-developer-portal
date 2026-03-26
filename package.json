@@ -1,0 +1,29 @@
+{
+  "name": "myparcel-developer-portal",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "zudoku dev",
+    "build": "zudoku build",
+    "preview": "zudoku preview",
+    "lint": "eslint",
+    "fetch-specs": "node scripts/fetch-specs.mjs"
+  },
+  "dependencies": {
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0",
+    "zudoku": "0.71.10"
+  },
+  "devDependencies": {
+    "@apidevtools/swagger-cli": "^4.0.4",
+    "@redocly/cli": "^2.25.1",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@typescript-eslint/eslint-plugin": "^8",
+    "@typescript-eslint/parser": "^8",
+    "eslint": "^8",
+    "typescript": "^5"
+  }
+}

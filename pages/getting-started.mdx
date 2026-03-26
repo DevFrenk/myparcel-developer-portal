@@ -1,0 +1,64 @@
+---
+title: Getting Started
+---
+
+# Getting Started
+
+This guide walks you through setting up your first MyParcel API integration.
+
+## Prerequisites
+
+- A MyParcel account ([sign up at myparcel.nl](https://www.myparcel.nl))
+- An API key (generated in your MyParcel backoffice)
+
+## Step 1: Get Your API Key
+
+1. Log in to your [MyParcel backoffice](https://backoffice.myparcel.nl)
+2. Navigate to **Settings** → **Integration**
+3. Generate a new API key
+4. Store the key securely — you'll need it for all API requests
+
+## Step 2: Make Your First Request
+
+Test your API key by calling the IAM API to verify your identity:
+
+```bash
+curl -X GET https://iam.api.myparcel.nl/whoami \
+  -H "Authorization: bearer YOUR_API_KEY"
+```
+
+A successful response returns your account details, roles, and feature flags.
+
+## Step 3: Create a Shipment
+
+Use the Shipping API to create your first shipment:
+
+```bash
+curl -X POST https://api.myparcel.nl/shipments \
+  -H "Authorization: bearer YOUR_API_KEY" \
+  -H "Content-Type: application/vnd.shipment+json;charset=utf-8" \
+  -d '{
+    "data": {
+      "shipments": [{
+        "recipient": {
+          "cc": "NL",
+          "city": "Amsterdam",
+          "street": "Keizersgracht",
+          "number": "1",
+          "postal_code": "1015AA",
+          "person": "Jan Jansen"
+        },
+        "carrier": 1,
+        "options": {
+          "package_type": 1
+        }
+      }]
+    }
+  }'
+```
+
+## Next Steps
+
+- [Authentication](/authentication) — Learn about the different authentication methods
+- [Shipping API Reference](/api/shipping) — Full API documentation
+- [Order API Reference](/api/orders) — Manage orders end-to-end

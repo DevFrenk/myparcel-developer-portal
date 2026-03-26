@@ -1,0 +1,60 @@
+---
+title: Authentication
+---
+
+# Authentication
+
+MyParcel APIs support multiple authentication methods depending on the API and use case.
+
+## API Key (Header)
+
+The most common authentication method. Pass your API key in the `Authorization` header:
+
+```bash
+Authorization: bearer YOUR_API_KEY
+```
+
+**Used by:** Shipping API, Order API, IAM API
+
+Your API key is generated in the MyParcel backoffice under **Settings** → **Integration**. API keys are scoped to your shop and carry specific permissions.
+
+## Bearer Token (JWT)
+
+For advanced integrations, the Order API and IAM API also accept JWT bearer tokens:
+
+```bash
+Authorization: Bearer eyJhbGciOiJSUzI1NiIs...
+```
+
+**Used by:** Order API, IAM API
+
+## Permission Scopes
+
+API keys have specific permission scopes that control what operations are allowed:
+
+| Scope | Description |
+|-------|-------------|
+| `insertShipment` | Create new shipments |
+| `selectShipment` | Read shipment data |
+| `printShipmentLabel` | Generate and download labels |
+| `sendReturnShipmentMail` | Send return shipment emails |
+| `deleteShipment` | Delete shipments |
+| `selectOrderShipment` | Read order shipments |
+
+## Verifying Your Credentials
+
+Use the IAM API to verify your credentials and check your permissions:
+
+```bash
+curl -X GET https://iam.api.myparcel.nl/whoami \
+  -H "Authorization: bearer YOUR_API_KEY"
+```
+
+The response includes your account type (Shop or User), roles, and enabled feature flags.
+
+## Security Best Practices
+
+- Never expose API keys in client-side code or public repositories
+- Use environment variables to store API keys
+- Rotate API keys periodically
+- Use the minimum required permission scopes

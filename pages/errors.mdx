@@ -1,0 +1,89 @@
+---
+title: Error Handling
+---
+
+# Error Handling
+
+MyParcel APIs use standard HTTP status codes and return structured error responses.
+
+## HTTP Status Codes
+
+| Code | Description |
+|------|-------------|
+| `200` | Success |
+| `201` | Created — resource successfully created |
+| `400` | Bad Request — invalid parameters or request body |
+| `401` | Unauthorized — missing or invalid authentication |
+| `403` | Forbidden — insufficient permissions |
+| `404` | Not Found — resource does not exist |
+| `422` | Unprocessable Entity — validation error |
+| `429` | Too Many Requests — rate limit exceeded |
+| `500` | Internal Server Error |
+
+## Error Response Format
+
+### Shipping API
+
+```json
+{
+  "errors": [
+    {
+      "code": 3212,
+      "message": "cc is required"
+    }
+  ]
+}
+```
+
+### Order API (RFC 7807)
+
+The Order API follows the RFC 7807 Problem Details standard:
+
+```json
+{
+  "type": "https://api.myparcel.nl/errors/validation",
+  "title": "Validation Error",
+  "status": 422,
+  "detail": "One or more fields failed validation",
+  "errors": [
+    {
+      "field": "recipient.postal_code",
+      "message": "Invalid postal code format"
+    }
+  ]
+}
+```
+
+## Rate Limiting
+
+When you exceed the rate limit, the API returns a `429` status code. Implement exponential backoff in your integration:
+
+```javascript
+async function apiCall(url, options, retries = 3) {
+  for (let i = 0; i < retries; i++) {
+    const response = await fetch(url, options);
+    if (response.status !== 429) return response;
+    const delay = Math.pow(2, i) * 1000;
+    await new Promise((resolve) => setTimeout(resolve, delay));
+  }
+  throw new Error("Rate limit exceeded after retries");
+}
+```
+
+## Common Errors
+
+### Invalid API Key
+
+```
+HTTP 401: Unauthorized
+```
+
+Verify your API key is correct and hasn't been revoked. Generate a new key in the MyParcel backoffice if needed.
+
+### Missing Required Fields
+
+```
+HTTP 400/422: Validation Error
+```
+
+Check the API reference for required fields. The error response typically includes which fields are missing or invalid.
