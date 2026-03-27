@@ -128,7 +128,7 @@ const config: ZudokuConfig = {
         { type: "link", label: "Shipment API", to: "/api/shipping", icon: "package" },
         { type: "link", label: "Order API", to: "/api/orders", icon: "shopping-cart" },
         { type: "link", label: "IAM API", to: "/api/iam", icon: "shield" },
-        { type: "link", label: "Rule API", to: "/api/rules", icon: "settings" },
+        { type: "link", label: "Rules API", to: "/api/rules", icon: "settings" },
         { type: "link", label: "Address API", to: "/api/address", icon: "map-pin" },
         { type: "link", label: "Printing API", to: "/api/printing", icon: "printer" },
         { type: "link", label: "Product API", to: "/api/products", icon: "box" },
