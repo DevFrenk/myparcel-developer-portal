@@ -40,6 +40,7 @@ const config: ZudokuConfig = {
             { label: "GitHub", href: "https://github.com/myparcelnl/" },
             { label: "MyParcel", href: "https://www.myparcel.nl/" },
             { label: "SendMyParcel", href: "https://www.sendmyparcel.be/" },
+            { label: "MyParcel Italy", href: "https://www.myparcel.com/" },
           ],
         },
         {

@@ -38,3 +38,8 @@ yarn-error.log*
 infrastructure/node_modules
 infrastructure/dist
 infrastructure/cdk.out
+infrastructure/cdk.context.json
+infrastructure/package-lock.json
+
+# claude
+.claude/
