@@ -69,7 +69,7 @@ const config: ZudokuConfig = {
   },
   header: {
     navigation: [
-      { label: "Sign up for free", to: "https://www.myparcel.nl/aanmelden/", icon: "user-plus" },
+      { label: "Sign up for free", to: "https://www.myparcel.com/registration/", icon: "user-plus" },
       { label: "GitHub", to: "https://github.com/myparcelnl/", icon: "github" },
     ],
   },
